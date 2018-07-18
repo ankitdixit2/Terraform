@@ -2,6 +2,7 @@ node {
     checkout scm
     stage('init') {
         /* Test Terraform  */
+            sh "terraform validate -check-variables=false"
             sh "terraform init -backend=true -input=false"
     }
     stage('plan') {
