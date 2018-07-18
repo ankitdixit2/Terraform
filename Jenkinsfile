@@ -1,8 +1,24 @@
+#!groovy
+
+// Build Parameters
+properties([ parameters([
+  string( name: 'AWS_ACCESS_KEY_ID', defaultValue: ''),
+  string( name: 'AWS_SECRET_ACCESS_KEY', defaultValue: '')
+]), pipelineTriggers([]) ])
+
+// Environment Variables
+env.AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
+env.AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
+
 node {
+  env.PATH += ":/apps/Terraform/"
+
+    stage ('Checkout') {
     checkout scm
+  }
     stage('init') {
         /* Test Terraform  */
-            sh "terraform validate -check-variables=false"
+           
             sh "terraform init -backend=true -input=false"
     }
     stage('plan') {
