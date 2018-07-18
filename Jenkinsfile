@@ -5,9 +5,7 @@ node {
         dir ('/apps/Terraform') {
     sh 'pwd'
 }
-            sh "sudo terraform init"
-            sh "terraform plan -out=tfplan -input=false /apps/Terraform"
-            sh "terraform apply -input=false tfplan"
-                       
+            sh "terraform plan -out=tfplan -input=false"
+                                   
     }
 }
