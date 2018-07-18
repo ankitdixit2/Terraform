@@ -1,15 +1,3 @@
-#!groovy
-
-// Build Parameters
-properties([ parameters([
-  string( name: 'AWS_ACCESS_KEY_ID', defaultValue: ''),
-  string( name: 'AWS_SECRET_ACCESS_KEY', defaultValue: '')
-]), pipelineTriggers([]) ])
-
-// Environment Variables
-env.AWS_ACCESS_KEY_ID = 'AKIAIQKFPYRZQPG7M7MA'
-env.AWS_SECRET_ACCESS_KEY = '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'
-
 node {
   env.PATH += ":/apps/Terraform/"
 
