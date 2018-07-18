@@ -5,8 +5,8 @@ node {
         dir ('/apps/Terraform') {
     sh 'pwd'
 }
-            sh "sudo terraform plan -out=tfplan -input=false"
-            sh "sudo terraform apply -input=false tfplan"
+            sh "terraform plan -out=tfplan -input=false"
+            sh "terraform apply -input=false tfplan"
                        
     }
 }
