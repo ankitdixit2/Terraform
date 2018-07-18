@@ -2,7 +2,9 @@ node {
     checkout scm
     stage('build') {
         /* Test Terraform  */
-            sh "cd /apps/Terraform"
+        dir ('/apps/Terraform') {
+    sh 'pwd'
+}
             sh "terraform plan -out=tfplan -input=false"
             sh "terraform apply -input=false tfplan"
                        
