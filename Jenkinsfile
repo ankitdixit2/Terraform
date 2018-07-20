@@ -11,7 +11,7 @@ node {
      stage ('Checkout') {
     checkout scm
   }
-  /*stage('init') {                    
+  stage('init') {                    
             sh "terraform init -backend=true -input=false"
     } 
     stage('plan') {
@@ -19,7 +19,7 @@ node {
     }  
     stage ('Terraform Apply') {
             sh "terraform apply tfplan"
-  } */
+  } 
     stage ('Find IPs') {
             sh "/apps/Terraform/script-ToExtract-EC2-IP-Address-FromTFstate.sh"
   }
