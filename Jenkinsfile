@@ -20,9 +20,9 @@ node {
     stage ('Terraform Apply') {
             sh "terraform apply tfplan"
   } 
-    stage ('Find IPs') {
-            sh "/apps/Terraform/script-ToExtract-EC2-IP-Address-FromTFstate.sh"
-  }
+ //   stage ('Find IPs') {
+ //           sh "/apps/Terraform/script-ToExtract-EC2-IP-Address-FromTFstate.sh"
+//  }
      try {
       
         notifySlack(currentBuild.result)
